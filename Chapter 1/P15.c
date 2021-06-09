@@ -1,0 +1,23 @@
+/* 编写一个程序，以每行一个单词的形式打印其输入 */
+
+#include <stdio.h>
+#define IN 1
+#define OUT 0
+
+main() {
+	int c;
+	int state = OUT;
+
+	while ((c=getchar()) != EOF) {
+		if (c == ' ' || c == '\n' || c == '\t') { // 说明一个单词已经结束
+			putchar('\n');
+			state = IN;
+		}
+		else if (state == OUT) {
+			state = IN;
+			putchar(c);
+		}
+		else
+			putchar(c);
+	}
+}
